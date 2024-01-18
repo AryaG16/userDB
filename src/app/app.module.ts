@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { UserListComponent } from './user-list/user-list.component';
@@ -24,6 +25,7 @@ import { UserAddEditComponent } from './user-add-edit/user-add-edit.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
