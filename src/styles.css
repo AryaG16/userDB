@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+/* @import "~@angular/material/prebuilt-themes/pink-bluegrey.css"; */
 * {
   padding: 0;
   margin: 0;
@@ -7,8 +8,10 @@
   font-weight: 200;
   background-color: rgb(34, 32, 32);
   color: rgb(101, 244, 149);
-  font-family: "Teko", sans-serif;
+  /* font-family: "Teko", sans-serif; */
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
