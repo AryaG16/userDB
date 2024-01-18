@@ -7,9 +7,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { UserListComponent } from './user-list/user-list.component';
+import { UserAddEditComponent } from './user-add-edit/user-add-edit.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent, HeaderComponent, UserListComponent, UserAddEditComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
