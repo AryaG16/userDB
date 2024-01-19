@@ -45,6 +45,9 @@ mat-expansion-panel-header {
   color: rgb(5, 248, 54);
   text-decoration: underline;
 }
+.detail-for-responsive {
+  float: right;
+}
 .action-btn {
   min-width: 85px;
   margin-right: 10px;
@@ -62,4 +65,32 @@ mat-expansion-panel-header {
 }
 #del-btn:hover {
   border: 3px solid rgb(232, 39, 39);
+}
+
+@media screen and (max-width: 620px) {
+  .list-obj {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .user-open {
+    flex-direction: column;
+  }
+  .action-btn {
+    flex-direction: row;
+    padding: 0;
+    margin-top: 10px;
+  }
+  .action-btn > button {
+    margin: 0 5px;
+  }
+  .list-item {
+    width: 100%;
+  }
+  .item-title {
+    margin-right: 10px;
+  }
+  .detail-for-responsive {
+    float: right;
+  }
 }

@@ -20,15 +20,17 @@
     <mat-expansion-panel *ngFor="let user of users" class="list-obj">
         <mat-expansion-panel-header>
             <mat-panel-title>
-                <span class="item-title">Name:</span> {{user.name}}
+                <span class="item-title">Name:</span> {{user.name | uppercase}}
             </mat-panel-title>
         </mat-expansion-panel-header>
         <div class="user-open">
             <div class="list-item">
                 <!-- <li><span class="item-title">Name:</span> {{user.name}}</li> -->
-                <li><span class="item-title">Age:</span> {{user.age}}</li>
-                <li><span class="item-title">Phone:</span> {{user.phone}}</li>
-                <li><span class="item-title">Email:</span> {{user.email}}</li>
+                <li><span class="item-title">Age:</span> <span class="detail-for-responsive">{{user.age}}</span></li>
+                <li><span class="item-title">Phone:</span> <span class="detail-for-responsive">{{user.phone}}</span>
+                </li>
+                <li><span class="item-title">Email:</span> <span class="detail-for-responsive">{{user.email}}</span>
+                </li>
             </div>
             <div class="action-btn">
                 <button id="edit-btn" mat-button>Edit</button>
