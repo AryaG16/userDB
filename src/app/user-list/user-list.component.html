@@ -15,7 +15,7 @@
 </div> -->
 <!-- <p *ngIf="users.length <=0">No Users</p> -->
 
-<mat-accordion>
+<mat-accordion multi="true">
 
     <mat-expansion-panel *ngFor="let user of users" class="list-obj">
         <mat-expansion-panel-header>
@@ -33,8 +33,8 @@
                 </li>
             </div>
             <div class="action-btn">
-                <button id="edit-btn" mat-button>Edit</button>
-                <button id="del-btn" mat-button>Delete</button>
+                <button id="edit-btn" [routerLink]="['/edit-user',user._id]" mat-button>Edit</button>
+                <button id="del-btn" (click)="onDelete(user._id)" mat-button>Delete</button>
             </div>
         </div>
     </mat-expansion-panel>

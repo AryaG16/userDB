@@ -34,14 +34,18 @@ mat-expansion-panel-header {
   justify-content: space-between;
   align-items: center;
 }
-
+.list-item {
+  width: auto;
+}
 .list-item > li {
   width: 100%;
   list-style: none;
 }
+
 .item-title {
+  width: auto;
+  margin-right: 15px;
   letter-spacing: 1px;
-  margin-right: 3px;
   color: rgb(5, 248, 54);
   text-decoration: underline;
 }
