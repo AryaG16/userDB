@@ -2,7 +2,7 @@
 <div class="list">
     <ul *ngFor="let user of users" class="list-obj">
         <div class="list-item">
-            <li><span>Name:</span> {{user.name}}</li>
+            <li><span>Name:</span> {{user.name | uppercase}}</li>
             <li><span>Age:</span> {{user.age}}</li>
             <li><span>Phone:</span> {{user.phone}}</li>
             <li><span>Email:</span> {{user.email}}</li>

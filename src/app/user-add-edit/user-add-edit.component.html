@@ -1,24 +1,36 @@
 <form id="userForm" (submit)="onSaveUser(userForm)" #userForm="ngForm">
     <mat-form-field>
         <mat-label>Name</mat-label>
-        <input type="text" matInput name="name" placeholder="Enter Name" [ngModel]="user?.name">
+        <input type="text" matInput name="name" #name="ngModel" placeholder="Enter Name" [ngModel]="user?.name" required
+            minlength="3">
+        <mat-error *ngIf="name.invalid">Name required of minimum 3 character.</mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Age</mat-label>
-        <input type="number" matInput name="age" placeholder="Enter Age" [ngModel]="user?.age">
+        <input type="number" matInput name="age" #age="ngModel" placeholder="Enter Age" [ngModel]="user?.age" required
+            min="12" max="100">
+        <mat-error *ngIf="age.invalid">Age required of range 12-100.</mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Phone Number</mat-label>
-        <input type="number" matInput name="phone" placeholder="Enter Phone No." [ngModel]="user?.phone">
+        <input type="number" matInput #phone="ngModel" name="phone" placeholder="Enter Phone No."
+            [ngModel]="user?.phone" required minlength="10">
+        <mat-error *ngIf="phone.invalid">Phone No. required of 10 Digits.</mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Email</mat-label>
-        <input type="email" matInput name="email" placeholder="Enter Email" [ngModel]="user?.email">
+        <input type="email" #email="ngModel" matInput name="email" placeholder="Enter Email" [ngModel]="user?.email"
+            email required>
+        <mat-error *ngIf="email.invalid">Email required of proper format.</mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Password</mat-label>
-        <input type="password" matInput name="password" placeholder="Enter Password" [ngModel]="user?.password">
+        <input type="password" #password="ngModel" matInput name="password" placeholder="Enter Password"
+            [ngModel]="user?.password" required pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}">
+        <mat-error *ngIf="password.invalid">Minimum 8 character consisting of letter & number.</mat-error>
     </mat-form-field>
 
-    <button mat-button type="submit">Save Details</button>
+    <button [disabled]="userForm.invalid" mat-button type="submit">
+        <p id="sub-btn-text">Save Details</p>
+    </button>
 </form>
