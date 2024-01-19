@@ -1,5 +1,5 @@
 <!-- <div class="list" *ngIf="users.length >0"> -->
-<div class="list">
+<!-- <div class="list">
     <ul *ngFor="let user of users" class="list-obj">
         <div class="list-item">
             <li><span>Name:</span> {{user.name | uppercase}}</li>
@@ -12,28 +12,29 @@
             <button id="del-btn" (click)="onDelete(user._id)" mat-button>Delete</button>
         </div>
     </ul>
-</div>
+</div> -->
 <!-- <p *ngIf="users.length <=0">No Users</p> -->
-<!--     
-    <mat-accordion>
 
-        <mat-expansion-panel *ngFor="let user of users" class="list-obj">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    {{user.name}}
-                </mat-panel-title>
-            </mat-expansion-panel-header>
+<mat-accordion>
+
+    <mat-expansion-panel *ngFor="let user of users" class="list-obj">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <span class="item-title">Name:</span> {{user.name}}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="user-open">
             <div class="list-item">
-                <li><span>Name:</span> {{user.name}}</li>
-                <li><span>Age:</span> {{user.age}}</li>
-                <li><span>Phone:</span> {{user.phone}}</li>
-                <li><span>Email:</span> {{user.email}}</li>
+                <!-- <li><span class="item-title">Name:</span> {{user.name}}</li> -->
+                <li><span class="item-title">Age:</span> {{user.age}}</li>
+                <li><span class="item-title">Phone:</span> {{user.phone}}</li>
+                <li><span class="item-title">Email:</span> {{user.email}}</li>
             </div>
             <div class="action-btn">
                 <button id="edit-btn" mat-button>Edit</button>
                 <button id="del-btn" mat-button>Delete</button>
             </div>
-        </mat-expansion-panel>
+        </div>
+    </mat-expansion-panel>
 
-    </mat-accordion>
--->
+</mat-accordion>
