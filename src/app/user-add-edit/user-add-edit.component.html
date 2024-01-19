@@ -14,7 +14,8 @@
     <mat-form-field>
         <mat-label>Phone Number</mat-label>
         <input type="number" matInput #phone="ngModel" name="phone" placeholder="Enter Phone No."
-            [ngModel]="user?.phone" required minlength="10">
+            [ngModel]="user?.phone" required
+            pattern="((\+*)((0[ -]*)*|((91 )*))((\d{12})+|(\d{10})+))|\d{5}([- ]*)\d{6}">
         <mat-error *ngIf="phone.invalid">Phone No. required of 10 Digits.</mat-error>
     </mat-form-field>
     <mat-form-field>
