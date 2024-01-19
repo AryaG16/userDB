@@ -13,6 +13,7 @@ exports.addUser = async (req, res) => {
     .then((addedUser) => {
       res.status(201).json({
         message: "User added successfully",
+        userId: addedUser._id,
       });
     });
 };

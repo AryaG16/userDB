@@ -1,24 +1,24 @@
-<form id="userForm">
+<form id="userForm" (submit)="onSaveUser(userForm)" #userForm="ngForm">
     <mat-form-field>
         <mat-label>Name</mat-label>
-        <input type="text" matInput placeholder="Enter Name">
+        <input type="text" matInput name="name" placeholder="Enter Name" [ngModel]="user?.name">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Age</mat-label>
-        <input type="number" matInput placeholder="Enter Age">
+        <input type="number" matInput name="age" placeholder="Enter Age" [ngModel]="user?.age">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Phone Number</mat-label>
-        <input type="number" matInput placeholder="Enter Phone No.">
+        <input type="number" matInput name="phone" placeholder="Enter Phone No." [ngModel]="user?.phone">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Email</mat-label>
-        <input type="email" matInput placeholder="Enter Email">
+        <input type="email" matInput name="email" placeholder="Enter Email" [ngModel]="user?.email">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Password</mat-label>
-        <input type="password" matInput placeholder="Enter Password">
+        <input type="password" matInput name="password" placeholder="Enter Password" [ngModel]="user?.password">
     </mat-form-field>
 
-    <button mat-button>Save Details</button>
+    <button mat-button type="submit">Save Details</button>
 </form>

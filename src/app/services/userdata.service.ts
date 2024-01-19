@@ -9,27 +9,39 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class UserdataService {
-  private users: User[] = [
-    {
-      _id: '',
-      name: 'Aryan Bhavsar',
-      age: 20,
-      phone: 9824990033,
-      email: 'a@asdnhjb.com',
-      password: 'a2sdki2',
-    },
-    {
-      _id: '',
-      name: 'Nandini Bhavsar',
-      age: 10,
-      phone: 8765438221,
-      email: 'nand@bha.com',
-      password: 'Kis4hsd',
-    },
-  ];
+  private users: User[] = [];
   private usersUpdated = new Subject<User[]>();
 
   constructor(private http: HttpClient, private router: Router) {}
+
+  addUser(
+    name: string,
+    age: number,
+    phone: number,
+    email: string,
+    password: string
+  ) {
+    const user: User = {
+      _id: '',
+      name: name,
+      age: age,
+      phone: phone,
+      email: email,
+      password: password,
+    };
+    this.http
+      .post<{ message: string; userId: string }>(
+        'http://localhost:3000/api/users',
+        user
+      )
+      .subscribe((responseData) => {
+        const id = responseData.userId;
+        user._id = id;
+        this.users.push(user);
+        this.usersUpdated.next([...this.users]);
+        this.router.navigate(['']);
+      });
+  }
 
   userUpdateListener() {
     return this.usersUpdated.asObservable();
@@ -59,14 +71,9 @@ export class UserdataService {
   }
 
   getUser(id: string) {
-    return this.http.get<{
-      _id: string;
-      name: string;
-      age: number;
-      phone: number;
-      email: string;
-      password: string;
-    }>('http://localhost:3000/api/users/' + id);
+    return this.http.get<{ message: string; userExists: any }>(
+      'http://localhost:3000/api/users/' + id
+    );
   }
 
   updateUser(
