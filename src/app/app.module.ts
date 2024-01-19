@@ -14,6 +14,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserAddEditComponent } from './user-add-edit/user-add-edit.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,7 @@ import { UserAddEditComponent } from './user-add-edit/user-add-edit.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatButtonModule,
     MatExpansionModule,
