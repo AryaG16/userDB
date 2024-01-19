@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { UserdataService } from '../services/userdata.service';
-import { Subscription } from 'rxjs';
+import { EMPTY, Subscription } from 'rxjs';
 import { User } from '../model/user.model';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-user-list',
@@ -9,28 +10,15 @@ import { User } from '../model/user.model';
   styleUrls: ['./user-list.component.css'],
 })
 export class UserListComponent implements OnInit {
-  // users = [
-  //   {
-  //     name: 'Aryan Bhavsar',
-  //     age: 20,
-  //     phone: 9824990033,
-  //     email: 'a@asdnhjb.com',
-  //     password: 'a2sdki2',
-  //   },
-  //   {
-  //     name: 'Nandini Bhavsar',
-  //     age: 10,
-  //     phone: 8765438221,
-  //     email: 'nand@bha.com',
-  //     password: 'Kis4hsd',
-  //   },
-  // ];
-
   users: User[] = [];
   private usersSub: Subscription;
+  confirmDelUser: string = '';
 
-  constructor(private userdata: UserdataService) {
+  @ViewChild('callAPIDialog') callAPIDialog!: TemplateRef<any>;
+
+  constructor(private userdata: UserdataService, private dialog: MatDialog) {
     this.usersSub = Subscription.EMPTY;
+    // this.callAPIDialog=;
   }
 
   ngOnInit() {
@@ -42,8 +30,19 @@ export class UserListComponent implements OnInit {
       });
   }
 
-  onDelete(postId: string) {
-    this.userdata.deleteUser(postId);
+  onDelete(userId: string, userName: string) {
+    this.confirmDelUser = userName;
+    let dialogRef = this.dialog.open(this.callAPIDialog);
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result !== undefined) {
+        if (result === 'yes') {
+          this.userdata.deleteUser(userId);
+          console.log('User clicked yes.');
+        } else if (result === 'no') {
+          console.log('User clicked no.');
+        }
+      }
+    });
   }
 
   ngOnDestroy() {

@@ -34,9 +34,17 @@
             </div>
             <div class="action-btn">
                 <button id="edit-btn" [routerLink]="['/edit-user',user._id]" mat-button>Edit</button>
-                <button id="del-btn" (click)="onDelete(user._id)" mat-button>Delete</button>
+                <button id="del-btn" (click)="onDelete(user._id,user.name)" mat-button>Delete</button>
             </div>
         </div>
     </mat-expansion-panel>
 
 </mat-accordion>
+
+<ng-template #callAPIDialog>
+    <h2 matDialogTitle>Delete {{confirmDelUser}} User?</h2>
+    <mat-dialog-actions align="end">
+        <button mat-button class="dialog-btn" matDialogClose="no">No</button>
+        <button mat-button class="dialog-btn" matDialogClose="yes">Yes</button>
+    </mat-dialog-actions>
+</ng-template>
